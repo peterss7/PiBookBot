@@ -1,0 +1,26 @@
+{
+	"React Use Ref": {
+		"prefix": "rur",
+		"body": [
+			"const $1Ref = useRef<$0>(null);",
+		]
+	},
+	"React Function Component": {
+		"prefix": "rfc",
+		"body": [
+			"type $1Props = {",
+			"",
+			"}",
+			"",
+			"export default function $1 (props: $1Props){",
+			"const { } = props;",
+			"",
+			"return (",
+			"<>",
+			"$0",
+			"</>",
+			")",
+			"}"
+		]
+	}
+}

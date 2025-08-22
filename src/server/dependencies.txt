@@ -1,0 +1,12 @@
+python3-pip
+python3-venv
+python3-dev
+git
+build-essential
+python3-rpi-lgpio
+python3-libgpiod
+python3-smbus
+i2c-tools
+tesseract-ocr
+libtesseract-dev
+fswebcam

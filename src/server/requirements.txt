@@ -1,0 +1,10 @@
+adafruit-circuitpython-servokit
+adafruit-blinka
+flask
+flask-cors
+requests
+opencv-python
+pytesseract
+smbus2
+pytesseract
+pillow
