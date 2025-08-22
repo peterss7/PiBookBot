@@ -28,7 +28,7 @@ VENV_DIR=".venv"
 echo "==> Starting Setup Script"
 sudo apt update
 # sudo apt install -y "${APT_DEPS[@]}"
-xargs -a pi_deps.txt sudo apt install -y
+xargs -a dependencies.txt sudo apt install -y
 
 # echo "==> Enabling I2C (i2c-dev) if not already enabled..."
 # Ensure i2c-dev module loads

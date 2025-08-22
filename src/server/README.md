@@ -4,7 +4,10 @@ pip install -r requirements.txt
 
 ## Install dependencies
 sudo apt update  
-xargs -a pi_deps.txt sudo apt install -y
+xargs -a dependencies.txt sudo apt install -y
+
+## Running Setup
+bash src/server/setup.sh
 
 ## Make sure your stream gives a still frame
 curl -s "http://annex.local:8080/?action=snapshot" -o /tmp/snap.jpg && file /tmp/snap.jpg  
