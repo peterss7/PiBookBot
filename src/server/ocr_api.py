@@ -6,7 +6,7 @@ from flask_cors import CORS
 SNAP_URL   = os.getenv("SNAP_URL", "http://127.0.0.1:8080/?action=snapshot")
 INTERVAL   = float(os.getenv("OCR_INTERVAL", "0.6"))
 MIN_CONF   = int(os.getenv("OCR_MIN_CONF", "60"))
-TESS_CFG   = os.getenv("TESS_CFG", "--oem 1 --psm 11")  # good general config
+TESS_CFG   = os.getenv("TESS_CFG", "--oem 1 --psm 6")  # good general config
 
 app = Flask(__name__)
 CORS(app, resources={r"/ocr/*": {"origins": "*"}})

@@ -13,14 +13,8 @@ export default function HomePage(props: HomePageProps) {
 
     return (
         <>
-            <div
-                style={{
-                    position: "relative",
-                    display: "inline-block",   // shrink-wrap to the image
-                    lineHeight: 0              // avoid extra gaps
-                }}
-            >
-                <MjpegStreamComponent />
+            <div style={{ position: "relative", display: "inline-block" }}>
+                <MjpegStreamComponent ref={imgRef} />
                 <OcrOverlayComponent imgRef={imgRef} />
             </div>
         </>

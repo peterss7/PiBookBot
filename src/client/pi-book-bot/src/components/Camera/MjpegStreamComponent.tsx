@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { V_STREAM_URL } from "../../constats/camera";
+import { V_STREAM_URL } from "../../constants/camera";
 
 type MjpegStreamComponentProps = {
     className?: string;

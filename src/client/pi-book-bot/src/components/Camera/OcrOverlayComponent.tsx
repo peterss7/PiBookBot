@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { OCR_URL } from "../../constats/camera";
+import { OCR_URL } from "../../constants/camera";
 
 type Box = { text: string; conf: number; x: number; y: number; w: number; h: number; };
 type OcrState = { boxes: Box[]; frame_w: number; frame_h: number; ts: number; };
@@ -89,13 +89,22 @@ export default function OcrOverlayComponent(props: OcrOverlayComponentProps) {
         };
 
         draw();
+        console.log("OcrOverlay", OCR_URL);
         timer = window.setInterval(draw, 500);
         return () => { cancelled = true; if (timer) clearInterval(timer); };
     }, [OCR_URL, imgRef]);
 
     return (
         <>
-
+            <canvas
+                ref={canvasRef}
+                style={{
+                    position: "absolute",
+                    inset: 0,
+                    zIndex: 1,
+                    pointerEvents: "none",
+                }}
+            />
         </>
     )
 }

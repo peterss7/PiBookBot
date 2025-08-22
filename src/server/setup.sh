@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # --- config ---
-VENV_DIR=".venv"
+# VENV_DIR=".venv"
 # PY_DEPS=(
 #   adafruit-circuitpython-servokit
 #   adafruit-blinka
@@ -53,12 +53,12 @@ xargs -a dependencies.txt sudo apt install -y
 #   echo "  /dev/i2c-1 not present yet. A reboot may be required for I2C to appear."
 # fi
 
-echo "==> Creating Python venv at ${VENV_DIR} (if missing)..."
-if [ ! -d "$VENV_DIR" ]; then
-  python3 -m venv "$VENV_DIR"
-fi
+# echo "==> Creating Python venv at ${VENV_DIR} (if missing)..."
+# if [ ! -d "$VENV_DIR" ]; then
+#   python3 -m venv "$VENV_DIR"
+# fi
 # shellcheck disable=SC1090
-source "${VENV_DIR}/bin/activate"
+# source "${VENV_DIR}/bin/activate"
 
 # echo "==> Upgrading pip/setuptools/wheel..."
 # pip install --upgrade pip setuptools wheel
