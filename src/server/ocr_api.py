@@ -22,15 +22,27 @@ def grab_and_ocr():
         if frame is None: return
 
         h, w = frame.shape[:2]
+        
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         # light denoise/threshold helps OCR a LOT
         gray = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1]
 
+        x = int(w * 0.15)
+        y = int(h * 0.15)
+        roi_w = int(w * 0.70)
+        roi_h = int(h * 0.70)
+        roi = gray[y:y+roi_h, x:x+roi_w]
+
+        # 3. Upscale cropped region to improve OCR
+        roi_big = cv2.resize(roi, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
+
+
         data = pytesseract.image_to_data(
-            gray, 
+            roi_big, 
             output_type=pytesseract.Output.DICT,
             config=TESS_CFG
         )
+        
         boxes = []
         for i, txt in enumerate(data["text"]):
             txt = txt.strip()
@@ -46,8 +58,8 @@ def grab_and_ocr():
                 })
 
         state.update({"boxes": boxes, "frame_w": w, "frame_h": h, "ts": time.time()})
-    except Exception:
-        pass
+    except Exception as e:
+        print("OCR error:", e)
 
 def worker():
     while True:
