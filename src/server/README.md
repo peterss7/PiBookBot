@@ -17,13 +17,19 @@ curl -s "http://annex.local:5001/ocr/latest" | jq .
 
 
 ## Command to start camera stream
-mjpg_streamer \
+mjpg_streamer \ 
   -i "input_uvc.so -d /dev/video0 -r 1280x720 -f 15" \
   -o "output_http.so -l 0.0.0.0 -p 8080 -w /usr/local/share/mjpg-streamer/www"
+> mjpg.log 2>&1 &
 
 ## To Grab files from pi
 scp pi@<pi-ip>:/tmp/snap.jpg .
 
+## Shell Script Cheat Sheet
+### run program and log output to file
+python x_api.py > x_api.log 2>&1 &
+### view log live in new window
+tail -f x_api.log
 
 ## Troubleshooting Camera
 ### List video devices
@@ -34,3 +40,11 @@ dmesg | grep -i video
 v4l2-ctl --list-devices
 ### Quick capture test
 fswebcam test.jpg
+### identify task of port, kill task of port
+sudo lsof -i :5001
+sudo kill -9 <PID>
+
+mjpg_streamer \
+  -i "input_uvc.so -d /dev/video0 -r 1280x720 -f 15" \
+  -o "output_http.so -l 0.0.0.0 -p 8080 -w /usr/local/share/mjpg-streamer/www" \
+  > mjpg.log 2>&1 &
