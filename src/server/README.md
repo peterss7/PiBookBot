@@ -6,7 +6,7 @@ pip install -r requirements.txt
 sudo apt update  
 xargs -a dependencies.txt sudo apt install -y
 
-## Running Setup
+## Running Setup.
 bash src/server/setup.sh
 
 ## Make sure your stream gives a still frame
