@@ -29,7 +29,7 @@ scp pi@<pi-ip>:/tmp/snap.jpg .
 ### List video devices
 ls /dev/video*
 ### Check Logs
-dmesg | grep -i video
+tail -f <FILE>
 ### Query device info
 v4l2-ctl --list-devices
 ### Quick capture test
