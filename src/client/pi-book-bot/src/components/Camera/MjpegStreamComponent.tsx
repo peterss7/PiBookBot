@@ -16,7 +16,7 @@ const MjpegStreamComponent = forwardRef<HTMLImageElement, MjpegStreamComponentPr
                 src={V_STREAM_URL}
                 alt="Pi camera"
                 className={className}
-                style={{width: "1000px", height: "auto"}}
+                style={{width: "900px", height: "auto"}}
             />
         </>
     );

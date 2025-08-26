@@ -2,6 +2,8 @@ import {styled} from "@mui/system";
 
 const StyledButton = styled("button")({
     border: "2px solid yellow",
+    width: "25%",
+    height: "auto",
 })
 
 type ButtonProps = {
