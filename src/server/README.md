@@ -6,13 +6,13 @@ pip install -r requirements.txt
 sudo apt update  
 xargs -a dependencies.txt sudo apt install -y
 
-## Running Setup
+## Running Setup.
 bash src/server/setup.sh
 
 ## Make sure your stream gives a still frame
 curl -s "http://annex.local:8080/?action=snapshot" -o /tmp/snap.jpg && file /tmp/snap.jpg  
 
-## Make sure your OCR JSON responds
+## Make sure your OCR JSON responds.
 curl -s "http://annex.local:5001/ocr/latest" | jq .  
 
 
