@@ -1,4 +1,4 @@
-export const HOSTNAME: string = "http://annex.local";
+import {HOSTNAME} from "./url.tsx";
 
 export const OCR_PORT: string = "5001";
 export const OCR_URL: string = `${HOSTNAME}:${OCR_PORT}/ocr/latest`;

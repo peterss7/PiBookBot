@@ -1,30 +1,26 @@
-import StyledCommonContainers from "../common/styles/StyledCommonContainers.tsx";
 import MjpegStreamComponent from "./MjpegStreamComponent.tsx";
 import OcrOverlayComponent from "./OcrOverlayComponent.tsx";
 import {useRef} from "react";
 import {styled} from "@mui/system";
+import {column} from "../common/styles/containerStyles.ts";
 
-const StreamContainer = styled("div")(() => ({
+const CameraContainerComponent = styled("div")(() => ({}));
+
+const StreamOverlay = styled("div")(() => ({
     position: "relative",
     display: "inline-block",
-    marginBottom: "5rem",
-}));
+}))
 
 export default function CameraContainer() {
     const imgRef = useRef<HTMLImageElement>(null);
-    const { Column, Row } = StyledCommonContainers();
 
     return (
-        <>
-            <Column>
-                <Row>
-                    <h2>Pi Stream</h2>
-                </Row>
-                <StreamContainer>
-                    <MjpegStreamComponent ref={imgRef}/>
-                    <OcrOverlayComponent imgRef={imgRef}/>
-                </StreamContainer>
-            </Column>
-        </>
-    )
+        <CameraContainerComponent sx={column}>
+            <h2>Pi Stream</h2>
+            <StreamOverlay>
+                <MjpegStreamComponent ref={imgRef}/>
+                <OcrOverlayComponent imgRef={imgRef}/>
+            </StreamOverlay>
+        </CameraContainerComponent>
+    );
 }

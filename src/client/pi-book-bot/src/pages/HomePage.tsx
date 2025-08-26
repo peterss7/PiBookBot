@@ -1,29 +1,32 @@
 import {styled} from "@mui/system";
+import {column, row} from "../components/common/styles/containerStyles.ts";
 import CameraContainer from "../components/Camera/CameraContainer.tsx";
-import StyledCommonContainers from "../components/common/styles/StyledCommonContainers.tsx";
 import ServoButtonsComponent from "../components/Button/ServoButtonsComponent.tsx";
 
 const HomeContainer = styled("div")(() => ({
-    width: "100vw",
-    hight: "100vh",
-    display: "flex",
-    flexDirection: "row",
+    width: "99.5vw",
+    height: "99vh",
     backgroundColor: "black",
     overflow: "hidden",
-    justifyContent: "center",
-    alignItems: "center",
+    border: "2px solid yellow",
+}));
+
+const HomeContent = styled("div")(() => ({
+    border: "1px solid red",
 }))
 
 export default function HomePage() {
-    const {Column} = StyledCommonContainers();
-
     return (
-        <HomeContainer>
-            <ServoButtonsComponent name={"Servo 1"}/>
-            <CameraContainer/>
-            <Column>
-                <p>Hi</p>
-            </Column>
+        <HomeContainer sx={row}>
+            <HomeContent sx={column}>
+                <ServoButtonsComponent name={"1"} />
+            </HomeContent>
+            <HomeContent sx={[column, {flexGrow: "2", width: "50%"}]}>
+                <CameraContainer />
+            </HomeContent>
+            <HomeContent sx={column}>
+                <h1>3</h1>
+            </HomeContent>
         </HomeContainer>
     );
 }

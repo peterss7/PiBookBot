@@ -95,7 +95,7 @@ export default function OcrOverlayComponent(props: OcrOverlayComponentProps) {
     }, [OCR_URL, imgRef]);
 
     return (
-        <>
+        <div>
             <canvas
                 ref={canvasRef}
                 style={{
@@ -105,6 +105,6 @@ export default function OcrOverlayComponent(props: OcrOverlayComponentProps) {
                     pointerEvents: "none",
                 }}
             />
-        </>
+        </div>
     )
 }
