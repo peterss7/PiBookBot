@@ -30,12 +30,19 @@ scp pi@<pi-ip>:/tmp/snap.jpg .
 python x_api.py > x_api.log 2>&1 &
 ### view log live in new window
 tail -f x_api.log
+## Tasks
+### Check Logs
+tail -f <FILE>
+### Find task by port
+sudo lsof -i <PORT>
+### Kill task by PID
+sudo kill -9 <PID>
+### Kill task by file of execution
+pkill -f <FILE>
 
 ## Troubleshooting Camera
 ### List video devices
 ls /dev/video*
-### Check Logs
-dmesg | grep -i video
 ### Query device info
 v4l2-ctl --list-devices
 ### Quick capture test
