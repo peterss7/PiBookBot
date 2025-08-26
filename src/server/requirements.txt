@@ -1,5 +1,6 @@
 adafruit-circuitpython-servokit
 adafruit-blinka
+RPi.GPIO
 flask
 flask-cors
 requests
