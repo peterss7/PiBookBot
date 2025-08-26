@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-#!/usr/bin/env bash
-
-echo "Starting the Pi Book Bot..."
-=======
 #!/bin/bash
 
 echo "Initializing the Pi Book Bot...."
@@ -33,4 +28,3 @@ source .venv/bin/activate && \
 
 # Open live logs
 echo '✅ All services launched in separate terminals.'
->>>>>>> 77550ab77a926bf783adb7bdbfa831b68181ddcd
