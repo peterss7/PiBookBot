@@ -19,3 +19,4 @@ export const SERVO_PORT = "5000";
 export const SERVO_URL = `${HOSTNAME}:${SERVO_PORT}`;
 export const SERVO_NUDGE_URL = `${SERVO_URL}/servo/nudge`;
 export const SERVO_CENTER_URL = `${SERVO_URL}/servo/center`;
+export const SERVO_DELTA = 5;

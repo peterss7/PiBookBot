@@ -6,14 +6,7 @@ const StyledButton = styled("button")({
     height: "auto",
 })
 
-type ButtonProps = {
-    onClick?: () => void;
-    onStop?: () => void;
-    onStart?: () => void;
-    label: string;
-}
-
-export default function Button(props: ButtonProps) {
+export default function Button(props: ServoButtonProps) {
     const { label, onStart, onStop, onClick } = props;
     return (
         <>

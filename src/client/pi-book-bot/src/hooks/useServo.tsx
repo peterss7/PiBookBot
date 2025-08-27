@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import {SERVO_CENTER_URL, SERVO_NUDGE_URL} from "../constants/servos.tsx";
+import {SERVO_CENTER_URL, SERVO_NUDGE_URL} from "../constants/servoConstants.tsx";
 
 const intervalMs = 75;
 
@@ -7,7 +7,7 @@ export function useServo() {
     const timer = useRef<number | null>(null);
 
     // --- utility to clamp values server-side
-    const tick = async (channel: string, delta: string, min: string = "0", max: string = "180") => {
+    const tick = async (channel: string, delta: number, min: string = "0", max: string = "180") => {
         const tickUrl = `${SERVO_NUDGE_URL}?channel=${channel}&delta=${delta}&min=${min}&max=${max}`;
         try {
             await fetch(tickUrl, { method: "POST" });
@@ -16,7 +16,7 @@ export function useServo() {
         }
     };
 
-    const start = (channel: string, delta: string) => {
+    const start = (channel: string, delta: number) => {
         if (timer.current != null) return; // already running
         tick(channel, delta); // immediate fire
         timer.current = window.setInterval(() => tick(channel, delta), intervalMs);
