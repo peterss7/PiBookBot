@@ -1,14 +1,12 @@
-export type ServoButtonRowProps = {
-    negativeLabel: string;        // text on the button
-    positiveLabel: string;        // text on the button
-};
+import type {ButtonProps} from "./commonTypes.ts";
 
 export type ServoButtonProps = {
-    label: string;
     channel: string;
-    delta: number;
+    delta?: number;
     isCenter?: boolean;
-    onClick?: () => void;
-    onStart?: () => void;
-    onStop?: () => void;
+} & ButtonProps;
+
+export type ServoButtonRowProps = {
+    name:  string;
+    buttons: ServoButtonProps[];
 }
