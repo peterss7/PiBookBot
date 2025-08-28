@@ -21,10 +21,21 @@ echo "Starting OCR api..."
 source .venv/bin/activate && \
 	python ocr_api.py > ocr.log 2>&1 &
 
-  # Initialize the OCR api
-echo "Starting Servo api..."
-source .venv/bin/activate && \
-	cd .. && python server.servo_api.py > server/servo.log 2>&1 &
+  # Initialize the Servo api
+# echo "Starting Servo api..."
+# source .venv/bin/activate && \
+# 	cd .. && python server.servo_api.py > server/servo.log 2>&1 &
+
+echo "🚀 Starting Servo API..."
+
+# go to project root
+cd ~/PiBookBot/src || exit 1
+
+# activate venv
+source server/.venv/bin/activate
+
+# run as module so relative imports work, log to file, background
+python -m server.servo_api > server/servo.log 2>&1 &
 
 # Open live logs
 echo '✅ All services launched in separate terminals.'
