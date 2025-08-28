@@ -24,7 +24,7 @@ source .venv/bin/activate && \
   # Initialize the OCR api
 echo "Starting Servo api..."
 source .venv/bin/activate && \
-	python servo_api.py > servo.log 2>&1 &
+	cd .. && python server.servo_api.py > server/servo.log 2>&1 &
 
 # Open live logs
 echo '✅ All services launched in separate terminals.'
