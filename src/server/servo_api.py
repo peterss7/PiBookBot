@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from adafruit_servokit import ServoKit
-from motion import kit, _current, move_smooth_async, clamp
+from server.motion import kit, _current, move_smooth_async, clamp
 
 # 16-channel Servo HAT
 kit = ServoKit(channels=16)
