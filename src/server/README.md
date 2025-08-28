@@ -32,13 +32,13 @@ python x_api.py > x_api.log 2>&1 &
 tail -f x_api.log
 ## Tasks
 ### Check Logs
-tail -f <FILE>
+tail -f FILE
 ### Find task by port
-sudo lsof -i <PORT>
+sudo lsof -i :PORT
 ### Kill task by PID
-sudo kill -9 <PID>
+sudo kill -9 PID
 ### Kill task by file of execution
-pkill -f <FILE>
+pkill -f FILE
 
 ## Troubleshooting Camera
 ### List video devices
