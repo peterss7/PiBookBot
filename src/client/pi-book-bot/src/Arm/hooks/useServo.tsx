@@ -11,6 +11,7 @@ export function useServo() {
     // --- utility to clamp values server-side
     const tick = async (channel: string, delta: number, min: string = "0", max: string = "180") => {
         const tickUrl = `${SERVO_NUDGE_URL}?channel=${channel}&delta=${delta}&min=${min}&max=${max}`;
+        console.log(tickUrl, "Tick URL");
         try {
             await fetch(tickUrl, { method: "POST" });
         } catch (err) {
@@ -33,6 +34,7 @@ export function useServo() {
 
     const centerServo = (channel: string) => {
         const centerUrl = `${SERVO_CENTER_URL}?channel=${channel}`;
+        console.log(centerUrl, "center URL:", centerUrl);
         fetch(centerUrl, { method: "POST" });
     };
     //
