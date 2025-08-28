@@ -1,16 +1,3 @@
-export const tBorder = {
-    border: "1px solid yellow",
-}
-
-export type ContainerProps = {
-    title?: string;
-    width?: string;
-    height?: string;
-    border?: string;
-    justifyContent?: string;
-    alignItems?: string;
-}
-
 export const baseFlex = {
     display: "flex",
     width: "max",
